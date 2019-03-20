@@ -4,12 +4,6 @@ int fatorial(int n){
     for(;n>1;n--){
         f*=n;
     }
-    /*
-    while(n>1){
-        f*=n;
-        n--;
-    }
-    */
     return f;
 }
 main(){
