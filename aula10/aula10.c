@@ -33,17 +33,39 @@ void imprimir(int m[LIM][LIM],int lin,int col){
     }
 }
 void somar(int a[LIM][LIM],int b[LIM][LIM],int c[LIM][LIM],int lin,int col){
-
+    int i,j;
+    for(i=0;i<lin;i++){
+        for(j=0;j<col;j++){
+            c[i][j]=a[i][j]+b[i][j];
+        }
+    }
 }
 void sub(int a[LIM][LIM],int b[LIM][LIM],int c[LIM][LIM],int lin,int col){
-
+    int i,j;
+    for(i=0;i<lin;i++){
+        for(j=0;j<col;j++){
+            c[i][j]=a[i][j]-b[i][j];
+        }
+    }
 }
 void escalar(int a[LIM][LIM],int c[LIM][LIM],int e,int lin,int col){
-
+    int i,j;
+    for(i=0;i<lin;i++){
+        for(j=0;j<col;j++){
+            c[i][j]=a[i][j]*e;
+        }
+    }
 }
 
 void mult(int a[LIM][LIM],int b[LIM][LIM],int c[LIM][LIM],int lin1,int col1,int lin2,int col2){
+    int i,j,k;
+    for(i=0;i<lin1;i++){
+        for(j=0;j<col;j++){
+            for(k=0;k){
 
+            }
+        }
+    }
 }
 int validar(int l1,int c1,int l2,int c2){
     if((l1==l2)&&(c1==c2)){
@@ -67,22 +89,88 @@ main(){
         o=menu();
         switch(o){
             case 1:{
-
+                printf("\nDigite Linhas e Colunas da Matriz A: ");
+                scanf("%d %d",&linha1,&coluna1);
+                printf("\nDigite Linhas e Colunas da Matriz B: ");
+                scanf("%d %d",&linha2,&coluna2);
+                if(validar(linha1,coluna1,linha2,coluna2)){
+                    preencher(a,linha1,coluna1);
+                    preencher(b,linha2,coluna2);
+                    somar(a,b,c,linha1,coluna1);
+                    imprimir(a,linha1,coluna1);
+                    printf("+");
+                    imprimir(b,linha1,coluna1);
+                    printf("=");
+                    imprimir(c,linha1,coluna1);
+                }else{
+                    printf("Dimensoes Distintas\n");
+                }
+                system("pause");
+                break;
             }
             case 2:{
+                printf("\nDigite Linhas e Colunas da Matriz A: ");
+                scanf("%d %d",&linha1,&coluna1);
+                printf("\nDigite Linhas e Colunas da Matriz B: ");
+                scanf("%d %d",&linha2,&coluna2);
+                if(validar(linha1,coluna1,linha2,coluna2)){
+                    preencher(a,linha1,coluna1);
+                    preencher(b,linha2,coluna2);
+                    sub(a,b,c,linha1,coluna1);
+                    imprimir(a,linha1,coluna1);
+                    printf("-");
+                    imprimir(b,linha1,coluna1);
+                    printf("=");
+                    imprimir(c,linha1,coluna1);
+                }else{
+                    printf("Dimensoes Distintas\n");
+                }
+                system("pause");
+                break;
             }
             case 3:
                 {
-
+                printf("\nDigite Linhas e Colunas da Matriz A: ");
+                scanf("%d %d",&linha1,&coluna1);
+                if((linha1<=LIM)&&(coluna1<=LIM)){
+                    preencher(a,linha1,coluna1);
+                    printf("Digite o escalar: ");
+                    scanf("%d",&e);
+                    escalar(a,c,e,linha1,coluna1);
+                    imprimir(a,linha1,coluna1);
+                    printf("\nx\n");
+                    printf("\n%d\n=\n",e);
+                    imprimir(c,linha1,coluna1);
+                }else{
+                    printf("Dimensoes Distintas\n");
+                }
+                system("pause");
+                break;
             }
             case 4:{
-
+                printf("\nDigite Linhas e Colunas da Matriz A: ");
+                scanf("%d %d",&linha1,&coluna1);
+                printf("\nDigite Linhas e Colunas da Matriz B: ");
+                scanf("%d %d",&linha2,&coluna2);
+                if(validarMult(linha1,coluna1,linha2,coluna2)){
+                    preencher(a,linha1,coluna1);
+                    preencher(b,linha2,coluna2);
+                    mult(a,b,c,linha1,coluna1,linha2,coluna2);
+                    imprimir(a,linha1,coluna1);
+                    printf("x");
+                    imprimir(b,linha2,coluna2);
+                    printf("=");
+                    imprimir(c,linha1,coluna2);
+                }else{
+                    printf("Dimensoes Distintas\n");
+                }
+                system("pause");
                 break;
             }
             case 0:
-                printf("\nSaindo...\n");break;
+                printf("\n%d\n",o);break;
             default:
-                printf("\nErro\n");
+                printf("\nerro\n");
         }
     }while(o!=0);
 }
