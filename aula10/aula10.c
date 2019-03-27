@@ -56,7 +56,7 @@ void escalar(int a[LIM][LIM],int c[LIM][LIM],int e,int lin,int col){
         }
     }
 }
-
+//falta implementar o cálculo de matrizes
 void mult(int a[LIM][LIM],int b[LIM][LIM],int c[LIM][LIM],int lin1,int col1,int lin2,int col2){
     int i,j,k;
     for(i=0;i<lin1;i++){
