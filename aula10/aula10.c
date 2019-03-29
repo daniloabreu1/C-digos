@@ -56,20 +56,20 @@ void escalar(int a[LIM][LIM],int c[LIM][LIM],int e,int lin,int col){
         }
     }
 }
-//falta implementar o cálculo de matrizes
-void mult(int a[LIM][LIM],int b[LIM][LIM],int c[LIM][LIM],int lin1,int col1,int lin2,int col2){
+void mult(int a[LIM][LIM],int b[LIM][LIM],int c[LIM][LIM],int lin1,int col1,int col2){
     int i,j,k;
     for(i=0;i<lin1;i++){
-        for(j=0;j<col;j++){
-            for(k=0;k){
-
+        for(j=0;j<col2;j++){
+            c[i][j]=0;
+            for(k=0;k<col1;k++){
+                c[i][j] += a[i][k] * b[k][j];
             }
         }
     }
 }
 int validar(int l1,int c1,int l2,int c2){
     if((l1==l2)&&(c1==c2)){
-        if((l1<=LIM)&&(c1<=LIM)){
+        if((l1<=LIM)&&(c1<=LIM)&&(l1>0)&&(c1>0)){
             return 1;
         }
     }
@@ -77,7 +77,7 @@ int validar(int l1,int c1,int l2,int c2){
 }
 int validarMult(int l1,int c1,int l2,int c2){
     if(l2==c1){
-        if((l1<=LIM)&&(c1<=LIM)&&(c2<=LIM)){
+        if((l1<=LIM)&&(c1<=LIM)&&(c2<=LIM)&&(l1>0)&&(c1>0)){
             return 1;
         }
     }
@@ -128,11 +128,10 @@ main(){
                 system("pause");
                 break;
             }
-            case 3:
-                {
+            case 3:{
                 printf("\nDigite Linhas e Colunas da Matriz A: ");
                 scanf("%d %d",&linha1,&coluna1);
-                if((linha1<=LIM)&&(coluna1<=LIM)){
+                if((linha1<=LIM)&&(coluna1<=LIM)&&(linha1>0)&&(coluna1>0)){
                     preencher(a,linha1,coluna1);
                     printf("Digite o escalar: ");
                     scanf("%d",&e);
@@ -155,22 +154,22 @@ main(){
                 if(validarMult(linha1,coluna1,linha2,coluna2)){
                     preencher(a,linha1,coluna1);
                     preencher(b,linha2,coluna2);
-                    mult(a,b,c,linha1,coluna1,linha2,coluna2);
+                    mult(a,b,c,linha1,coluna1,coluna2);
                     imprimir(a,linha1,coluna1);
-                    printf("x");
+                    printf("\nx\n");
                     imprimir(b,linha2,coluna2);
-                    printf("=");
+                    printf("\n=");
                     imprimir(c,linha1,coluna2);
                 }else{
-                    printf("Dimensoes Distintas\n");
+                    printf("Dimensoes Incompativeis Para o Calculo\n");
                 }
                 system("pause");
                 break;
             }
             case 0:
-                printf("\n%d\n",o);break;
+                printf("\nSaindo...\n");break;
             default:
-                printf("\nerro\n");
+                printf("\nOpcao Invalida!!!\n");
         }
     }while(o!=0);
 }
