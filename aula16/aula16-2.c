@@ -1,6 +1,6 @@
 //Questao 02
 #include <stdio.h>
-int *maiorValor(int v[],int tam){
+int* maiorValor(int v[],int tam){
     int i,maior=v[0],m=0;
     for(i=1;i<tam;i++){
         if(maior<v[i]){
