@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <math.h>
 int raizes(float a,float b,float c, float *x1,float *x2){
-    int i,r=0;
+    int r=0;
     float d;
     if(a==0){
         r= -2;
