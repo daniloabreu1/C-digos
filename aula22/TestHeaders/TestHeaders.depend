@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1557830703 source:d:\google drive\trabalho\uepb\2019-1\lp1\códigos\aula20\testheaders\main.c
+	<stdio.h>
+	<stdlib.h>
+	"matrizes.h"
+
+1557830233 d:\google drive\trabalho\uepb\2019-1\lp1\códigos\aula20\testheaders\matrizes.h
+
+1557830731 source:d:\google drive\trabalho\uepb\2019-1\lp1\códigos\aula20\testheaders\matrizes.c
+	<stdio.h>
+	<stdlib.h>
+	"matrizes.h"
+
